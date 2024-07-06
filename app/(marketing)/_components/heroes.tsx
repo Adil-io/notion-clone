@@ -1,8 +1,8 @@
-import Image from "next/image";
+import Image from 'next/image';
 
 export const Heroes = () => {
   return (
-    <div className="flex flex-col items-center justify-center max-w-5xl">
+    <div className="flex max-w-5xl flex-col items-center justify-center">
       <div className="flex items-center">
         <div className="relative size-[300px] sm:size-[350px] md:size-[400px]">
           <Image
@@ -14,11 +14,11 @@ export const Heroes = () => {
           <Image
             src="/documents-dark.png"
             fill
-            className="object-contain hidden dark:block"
+            className="hidden object-contain dark:block"
             alt="Documents"
           />
         </div>
-        <div className="relative size-[400px] hidden md:block">
+        <div className="relative hidden size-[400px] md:block">
           <Image
             src="/reading.png"
             fill
@@ -28,7 +28,7 @@ export const Heroes = () => {
           <Image
             src="/reading-dark.png"
             fill
-            className="object-contain hidden dark:block"
+            className="hidden object-contain dark:block"
             alt="Reading"
           />
         </div>
