@@ -1,20 +1,21 @@
 'use client';
 
-import { api } from '@/convex/_generated/api';
-import { useSearch } from '@/hooks/use-search';
 import { useUser } from '@clerk/clerk-react';
-import { CommandItem } from 'cmdk';
 import { useQuery } from 'convex/react';
 import { File } from 'lucide-react';
 import { useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
+
 import {
   CommandDialog,
   CommandEmpty,
   CommandGroup,
   CommandInput,
+  CommandItem,
   CommandList,
-} from './ui/command';
+} from '@/components/ui/command';
+import { api } from '@/convex/_generated/api';
+import { useSearch } from '@/hooks/use-search';
+import { useEffect, useState } from 'react';
 
 export const SearchCommand = () => {
   const { user } = useUser();
@@ -43,7 +44,7 @@ export const SearchCommand = () => {
   }, [toggle]);
 
   const onSelect = (id: string) => {
-    router.push(`documents/${id}`);
+    router.push(`/documents/${id}`);
     onClose();
   };
 
@@ -53,7 +54,7 @@ export const SearchCommand = () => {
 
   return (
     <CommandDialog open={isOpen} onOpenChange={onClose}>
-      <CommandInput placeholder={`Search ${user?.fullName}'s Jotion...`} />
+      <CommandInput placeholder={`Search ${user?.fullName}'s Jotion`} />
       <CommandList>
         <CommandEmpty>No results found.</CommandEmpty>
         <CommandGroup heading="Documents">
@@ -63,7 +64,6 @@ export const SearchCommand = () => {
               value={`${document._id}-${document.title}`}
               title={document.title}
               onSelect={onSelect}
-              className="flex"
             >
               {document.icon ? (
                 <p className="mr-2 text-[18px]">{document.icon}</p>
