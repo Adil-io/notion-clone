@@ -103,7 +103,10 @@ export const Navigation = () => {
         'width',
         isMobile ? '0' : 'calc(100% - 240px)'
       );
-      setTimeout(() => setIsResetting(false), 300);
+      navbarRef.current.style.setProperty('left', isMobile ? '100%' : '240px');
+      setTimeout(() => {
+        setIsResetting(false);
+      }, 300);
     }
   };
 
