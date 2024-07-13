@@ -26,12 +26,12 @@ export const Navbar = () => {
         {isLoading && <Spinner />}
         {!isAuthenticated && !isLoading && (
           <>
-            <SignInButton mode="modal">
+            <SignInButton mode="modal" signUpForceRedirectUrl="/">
               <Button variant="ghost" size="sm">
                 Log in
               </Button>
             </SignInButton>
-            <SignInButton mode="modal">
+            <SignInButton mode="modal" signUpForceRedirectUrl="/">
               <Button size="sm">Get Noti Free</Button>
             </SignInButton>
           </>
