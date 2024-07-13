@@ -34,7 +34,7 @@ export const Heading = () => {
         </Button>
       )}
       {!isAuthenticated && !isLoading && (
-        <SignInButton mode="modal">
+        <SignInButton mode="modal" signUpForceRedirectUrl="/">
           <Button>
             Get Noti free
             <ArrowRight className="ml-2 size-4" />
